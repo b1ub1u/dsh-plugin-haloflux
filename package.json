@@ -1,0 +1,98 @@
+{
+  "name": "dsh-plugin-haloflux",
+  "version": "1.0.0",
+  "description": "DeepSeek Harness 插件：把 DSH × HALOFLUX 实时联动壁纸做成开箱即用的一键面板——自动托管本地数据服务（5 个 AI 平台会话聚合 + SSE 实时推送）、一键注入 Lively 壁纸、状态与健康检查。DSH plugin that turns the DSH x HALOFLUX live wallpaper into a zero-config panel: it supervises the local data bridge (5 AI-platform session aggregation with SSE streaming), injects the Lively wallpaper in one click, and exposes health/status endpoints.",
+  "type": "module",
+  "license": "MIT",
+  "main": "src/index.js",
+  "exports": {
+    ".": "./src/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "src/",
+    "lib/",
+    "docs/",
+    "cordis.patch.yml",
+    "README.md",
+    "CHANGELOG.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "cordis",
+    "haloflux",
+    "wallpaper",
+    "live-wallpaper",
+    "lively",
+    "session",
+    "visualization",
+    "dashboard"
+  ],
+  "engines": {
+    "node": ">=20",
+    "dsh": ">=0.1.0-rc.6"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "immediately": true
+    },
+    "engines": {
+      "dsh": ">=0.1.0-rc.6"
+    }
+  },
+  "dshhub": {
+    "schemaVersion": 1,
+    "displayName": "HALOFLUX 实时壁纸",
+    "summary": "把 DSH 的真实会话数据接成 Lively 桌面壁纸：多 AI 平台并发可视化、环带联动、实时面板。插件负责托管数据服务和一键注入壁纸。",
+    "categories": [
+      "壁纸",
+      "可视化",
+      "观测"
+    ],
+    "surfaces": [
+      "host",
+      "web"
+    ],
+    "capabilities": {
+      "provides": [
+        "service:haloflux-bridge"
+      ]
+    },
+    "compatibility": {
+      "dsh": ">=0.1.0-rc.6",
+      "node": ">=20"
+    },
+    "permissions": {
+      "network": [
+        "http://127.0.0.1:7788"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@deepseek-ai/cordis": "*"
+  },
+  "peerDependenciesMeta": {
+    "@deepseek-ai/cordis": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/b1ub1u/dsh-hud-haloflux-live2.git"
+  },
+  "homepage": "https://github.com/b1ub1u/dsh-hud-haloflux-live2#readme",
+  "bugs": {
+    "url": "https://github.com/b1ub1u/dsh-hud-haloflux-live2/issues"
+  },
+  "scripts": {
+    "check": "node --check src/index.js && node --check src/supervisor.js && node --check lib/client.js"
+  }
+}

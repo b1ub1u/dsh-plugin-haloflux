@@ -1,0 +1,12 @@
+# dsh-plugin-haloflux — bundle layer.
+#
+# One host row mounts the supervisor half (src/index.js): it starts, watches and
+# stops the local HALOFLUX bridge (`dsh-hud/server.mjs` on 127.0.0.1:7788).
+# The browser half is announced separately through `dsh.client` in package.json,
+# which serves ./lib/client.js to every DSH page (settings panel + status).
+#
+# The row id is stable on purpose: profile patches and re-installs target it by
+# id, and DSH keeps it in `dsh.profile.bundles` order across upgrades.
+- insert:
+    - id: dsh-plugin-haloflux
+      name: dsh-plugin-haloflux
