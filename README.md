@@ -24,17 +24,32 @@ powershell -NoProfile -ExecutionPolicy Bypass -File dsh-hud-haloflux\dsh-hud\ins
 
 ## 安装插件
 
+**不需要 npm 账号**，三种方式任选：
+
+**方式 A · 从 GitHub clone 后本地安装（推荐）**
+
 ```powershell
-dsh plugin --profile desktop add link:<本目录绝对路径>
+git clone https://github.com/b1ub1u/dsh-plugin-haloflux.git
+dsh plugin --profile desktop add "D:\path\to\dsh-plugin-haloflux"
 ```
 
-或从 npm（发布后）：
+clone 到哪个目录都行，把最后一段换成实际绝对路径即可。
+
+**方式 B · DSH 界面里装**
+
+DSH → 设置 → 插件 → 从本地目录安装 → 选中 clone 下来的 `dsh-plugin-haloflux` 目录。
+
+**方式 C · npm（本包发布到 npm 后才可用）**
 
 ```powershell
 dsh plugin --profile desktop add dsh-plugin-haloflux
 ```
 
 装完重启 DSH，设置里出现「HALOFLUX 实时壁纸」一节。
+
+> 三种方式等价：DSH 的插件装载只认 `package.json` 里的 `dsh.bundle.patch` 和
+> `dsh.client` 声明，包从哪来不影响激活。本地目录安装用的是 pnpm link，
+> 升级时 `git pull` 后重启 DSH 即可生效。
 
 ## 配置
 
