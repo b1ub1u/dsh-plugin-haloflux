@@ -42,7 +42,10 @@ function defaultProjectCandidates() {
   return [
     path.join(home, '.dsh', 'haloflux'),
     path.join(home, 'Documents', 'deepseek-harness', 'default-workspace', 'dsh-hud-haloflux'),
-    'D:\\56587\\Documents\\deepseek-harness\\default-workspace\\dsh-hud-haloflux',
+    // The old build hard-coded one absolute Windows path containing the author's
+    // username, which leaked a personal path into a public repository. Set the
+    // `projectDir` plugin option (or HALOFLUX_PROJECT_DIR) when the checkout lives
+    // somewhere else; these fallbacks stay machine-independent.
   ]
 }
 
