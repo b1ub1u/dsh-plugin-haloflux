@@ -13,9 +13,11 @@
   "files": [
     "src/",
     "lib/",
+    "locale/",
     "docs/",
     "cordis.patch.yml",
     "README.md",
+    "README.en.md",
     "CHANGELOG.md",
     "LICENSE"
   ],

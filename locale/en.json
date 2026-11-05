@@ -1,0 +1,7 @@
+{
+  "meta": {
+    "title": "HALOFLUX Live Wallpaper",
+    "description": "Turns real DSH session data into a Lively desktop wallpaper: concurrent multi-AI visualization, live ring animation and human-readable panels. This plugin supervises the data bridge with health checks and one-click start/stop.",
+    "detail": "README.en.md"
+  }
+}
